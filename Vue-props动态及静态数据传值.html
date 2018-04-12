@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <button @click="change">button</button>
+        <div :class="this.status?'':'hide'">这是一个button</div>
+        <my-component :count=num></my-component>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("myComponent",{
+        "template":"<div>这{{count}}万</div>",
+        props:['count'],
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            status:true,
+            num:5000
+        },
+        methods:{
+          change(){
+              this.num = this.num + 1000;
+              console.log(this.num)
+          }  
+        },
+        watch:{
+          num(){
+                  this.detail = this.num;
+          }
+        },
+        created(){
+            this.detail = this.num;
+        },
+        mounted(){
+            this.num =  this.num;
+        }
+    })
+</script>
