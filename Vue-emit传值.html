@@ -8,6 +8,37 @@
     <title>Document</title>
 </head>
 <body>
-
+    <div id="app">
+        <div>{{total}}</div>
+        <my-component v-on:add="add1"></my-component>
+    </div>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    Vue.component("myComponent",{
+        template:"<div><button v-on:click='add'>点击加一</button><br><div>{{conter}}</div></div>",
+        data:function () {
+            return{
+                conter:0,
+            }
+        },
+        methods:{
+            add(){
+                this.conter = this.conter + 1;
+                this.$emit("add");
+            }
+        }
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            total:0,
+        },
+        methods:{
+            add1(){
+                this.total = this.total + 2;
+            }
+        }
+    })
+</script>
