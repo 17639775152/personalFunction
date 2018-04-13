@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>制作动画</title>
+    <style>
+        .first{
+            width:100px;
+            height:100px;
+            border:1px solid palevioletred;
+            transition:all 500ms linear;
+        }
+        .first:hover{
+            transform:rotate(180deg);
+        }
+        .second{
+            width:100px;
+            height:100px;
+            border:1px solid #333;
+            animation:rotate 500ms linear  10000;
+        }
+        @keyframes rotate {
+            0%{transform:rotate(0deg)}
+            50%{transform:rotate(180deg)}
+            100%{transform:rotate(360deg)}
+        }
+    </style>
+</head>
+<body>
+    <!--1.css的transition动画-->
+    <!--在style里面设置好动画的展示类型:transition:a,b,c,d   a:代表动画效果可选值:要变化的属性,如宽高角度颜色等等,也可以选择all;
+    b:代表本次动画执行完毕需要多久时间,设置的时候需要自己添加单位,如s, ms;
+    c:完成动画效果的速度曲线,可选值:linear(匀速),ease(慢-快-慢),ease-in(慢慢快),ease-in-out(慢慢更慢),ease-in-out(变快再变慢)
+    d:动画效果的延迟触发时间;
+    在触发动画的事件里面设置动画结束样式;
+    -->
+    <div>css--transition</div>
+    <div class="first"></div>
+
+    <!--2.css3中animation属性(不需要触发条件设置好就可以执行)-->
+    <!--在style里面设置animation:a,b,c,d,e,f  a:name(动画名称),b:duration(动画执行完毕所需时间),c:(动画执行的速度曲线),d:动画的延迟,e:动画的执行次数,f:是否反向执行动画;-->
+    <div>css3中animation动画</div>
+    <div class="second"></div>
+    
+    <!--3.jquery中的animate动画-->
+    <!--4.原生js动画效果-->
+</body>
+</html>
